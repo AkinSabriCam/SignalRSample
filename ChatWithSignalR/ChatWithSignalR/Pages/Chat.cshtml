@@ -1,0 +1,33 @@
+﻿@page
+@model ChatWithSignalR.Pages.ChatModel
+@{
+}
+
+@section Scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.3/signalr.min.js"></script>
+    <script src="~/js/Chat.js"></script>
+}
+
+<div class="row">
+
+    <div class="col-md-3 form-group">
+        <select class="form-control" id="UserList">
+            @foreach (var user in Model.Users)
+            {
+                <option value="@user.Id">@user.UserName</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <textarea id="SendMessageTextArea" class="form-control"></textarea>
+        <button id="SendMessageBtn">Send</button>
+    </div>
+
+    <div class="col-md-6 form-group">
+        <div id="MessageBox" style=" border:1px solid gray;  width:600px; height:600px; ">
+        </div>
+    </div>
+
+</div>
